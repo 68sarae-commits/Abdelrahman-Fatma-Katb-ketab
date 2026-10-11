@@ -2,517 +2,230 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f4eb">
-  <title>دعوة كتب كتاب عبدالرحمن و فاطمة</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
-
-    :root {
-      --gold: #ad8747;
-      --light-gold: #d9bd82;
-      --cream: #f8f4eb;
-      --ink: #493a29;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 20px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(ellipse at top, #fffdf8, transparent 65%),
-        #e9dfcd;
-      color: var(--ink);
-      font-family: "Amiri", serif;
-    }
-
-    .invitation {
-      position: relative;
-      width: 100%;
-      max-width: 460px;
-      min-height: 690px;
-      padding: 42px 25px 35px;
-      text-align: center;
-      background: var(--cream);
-      border: 1px solid var(--light-gold);
-      outline: 1px solid #c7a568;
-      outline-offset: -9px;
-      box-shadow: 0 18px 55px #604b2b24;
-      overflow: hidden;
-    }
-
-    .ornament {
-      color: var(--gold);
-      font-size: 30px;
-      line-height: 1;
-      letter-spacing: 5px;
-    }
-
-    .top-label {
-      margin-top: 24px;
-      font-size: 19px;
-      color: #80663e;
-    }
-
-    .english {
-      direction: ltr;
-      font-family: "Cormorant Garamond", Georgia, serif;
-    }
-
-    .intro {
-      margin-top: 8px;
-      font-size: 17px;
-      color: #8d7958;
-    }
-
-    .names {
-      margin: 24px 0 8px;
-      font-size: clamp(38px, 10vw, 52px);
-      font-weight: 400;
-      color: var(--gold);
-      line-height: 1.5;
-    }
-
-    .ampersand {
-      display: block;
-      margin: -4px 0;
-      color: #9b7840;
-      font-size: 29px;
-      direction: ltr;
-    }
-
-    .subtitle {
-      margin-top: 16px;
-      font-size: 22px;
-    }
-
-    .subtitle-en {
-      margin-top: 3px;
-      font-size: 23px;
-      color: #8e7448;
-    }
-
-    .divider {
-      width: 125px;
-      height: 1px;
-      margin: 25px auto;
-      background: linear-gradient(
-        to right, transparent, var(--gold), transparent
-      );
-    }
-
-    .message {
-      max-width: 310px;
-      margin: auto;
-      font-size: 19px;
-      line-height: 1.9;
-    }
-
-    .date {
-      margin-top: 23px;
-      color: #8d7040;
-      font-size: 20px;
-      line-height: 1.9;
-    }
-
-    .venue {
-      margin-top: 12px;
-      font-size: 22px;
-      color: var(--gold);
-    }
-
-    .venue-en {
-      margin-top: 2px;
-      color: #8d7958;
-      font-size: 18px;
-    }
-
-    .bottom-ornament {
-      margin-top: 27px;
-    }
-    .location-btn {
-      display: inline-block;
-      margin: 18px auto;
-      padding: 12px 24px;
-      border: 1px solid var(--gold);
-      border-radius: 30px;
-      color: var(--gold);
-      text-decoration: none;
-      font-size: 15px;
-      transition: 0.3s;
-    }
-
-    .location-btn:hover {
-      background: var(--gold);
-      color: white;
-    }
-
-    .couple-photo {
-      width: 145px;
-      height: 175px;
-      object-fit: cover;
-      border: 2px solid #ad8747;
-      padding: 4px;
-      margin: 18px auto 0;
-      display: block;
-      border-radius: 80px 80px 8px 8px;
-    }
-    button {
-      font: inherit;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .open-screen {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 35px 22px;
-      background: var(--cream);
-      border: 1px solid var(--light-gold);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .open-screen::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px solid #d4b779;
-      pointer-events: none;
-    }
-
-    .monogram {
-      width: 105px;
-      height: 105px;
-      margin: 28px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      color: var(--gold);
-      font-size: 35px;
-      direction: ltr;
-    }
-
-    .cover-title {
-      font-size: 28px;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-
-    .cover-subtitle {
-      font-size: 17px;
-      color: #806b4c;
-      direction: ltr;
-    }
-
-    .open-button {
-      margin-top: 32px;
-      padding: 12px 29px;
-      color: #fffaf0;
-      background: #a88951;
-      border: 1px solid #8e703e;
-      letter-spacing: 1px;
-      font-size: 17px;
-      transition: background 0.3s;
-    }
-
-    .open-button:hover {
-      background: #846634;
-    }
-
-    .music-button {
-      position: absolute;
-      z-index: 7;
-      top: 20px;
-      left: 20px;
-      padding: 8px 12px;
-      border: 1px solid #c9ad75;
-      background: #fffaf0;
-      color: #866b3c;
-      font-size: 14px;
-    }
-
-    .invitation-content {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .invitation.opened .invitation-content {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .invitation.opened .open-screen {
-      opacity: 0;
-      transform: translateY(-15px);
-      pointer-events: none;
-    }
-
-    .invitation.opened .open-screen.removed {
-      display: none;
-    }
-
-    .language-toggle {
-      position: absolute;
-      z-index: 8;
-      top: 20px;
-      right: 20px;
-      border: 1px solid #c9ad75;
-      padding: 7px 10px;
-      color: #866b3c;
-      background: #fffaf0;
-      font-size: 13px;
-    }
-
-    .english-content {
-      display: none;
-      direction: ltr;
-    }
-
-    .invitation.english-mode .arabic-content {
-      display: none;
-    }
-
-    .invitation.english-mode .english-content {
-      display: block;
-    }
-
-    .invitation.english-mode {
-      direction: ltr;
-    }
-
-    .english-content .names {
-      font-size: 49px;
-      margin-top: 25px;
-    }
-
-    .english-content .message {
-      font-size: 20px;
-    }
-
-    @media (max-width: 380px) {
-      .invitation {
-        min-height: 660px;
-        padding: 38px 18px 28px;
-      }
-
-      .message {
-        font-size: 17px;
-      }
-
-      .music-button,
-      .language-toggle {
-        top: 17px;
-        font-size: 12px;
-        padding: 6px 8px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f3e9">
+<title>عبد الرحمن & فاطمة | دعوة كتب الكتاب</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:#f8f3e9;
+  --paper:#fffdf8;
+  --gold:#b18a4b;
+  --pale:#e3d1a7;
+  --ink:#453727;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; min-height:100vh; color:var(--ink);
+  background:radial-gradient(ellipse at top,#fffdf8,#eee3cd);
+  font-family:"Amiri",serif;
+}
+button,a { -webkit-tap-highlight-color:transparent; }
+button { font:inherit; cursor:pointer; }
+.opening {
+  position:fixed; inset:0; z-index:5; display:grid; place-items:center;
+  padding:24px; background:linear-gradient(135deg,#fdfaf3,#eee0c3);
+  transition:opacity .8s,visibility .8s;
+}
+.opening.hide { opacity:0; visibility:hidden; pointer-events:none; }
+.opening-card {
+  position:relative; width:min(100%,430px); min-height:550px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  padding:38px 24px; text-align:center; background:var(--paper);
+  border:1px solid var(--gold); outline:1px solid #d8c18d;
+  outline-offset:7px; box-shadow:0 20px 65px #6d54231c;
+}
+.opening-card:before,.opening-card:after {
+  content:"✦"; position:absolute; color:var(--gold); font-size:24px;
+}
+.opening-card:before { top:15px; right:18px; }
+.opening-card:after { bottom:15px; left:18px; }
+.eyebrow {
+  font:14px "Cormorant Garamond",serif; letter-spacing:3px;
+  color:#80602d; margin:0 0 22px;
+}
+.monogram {
+  width:95px; height:95px; border:1px solid var(--gold);
+  border-radius:50%; display:grid; place-items:center;
+  font:34px "Cormorant Garamond",serif; color:#80602d;
+  box-shadow:inset 0 0 0 5px #b18a4b12; margin-bottom:22px;
+}
+.opening h1 { font-size:39px; font-weight:400; margin:0; }
+.amp { font:26px "Cormorant Garamond",serif; color:var(--gold); margin:0; }
+.note { color:#827563; font-size:18px; margin:22px 0; }
+.gold-button {
+  border:1px solid var(--gold); color:white; padding:12px 30px;
+  background:linear-gradient(135deg,#c9aa6a,#967039);
+  box-shadow:0 8px 22px #80602d2b;
+}
+.toolbar { display:flex; justify-content:center; gap:10px; padding:20px 12px 0; flex-wrap:wrap; }
+.small-button {
+  border:1px solid var(--gold); color:#80602d; background:#fffdf8;
+  padding:8px 17px; text-decoration:none; font-size:16px;
+}
+.invitation-wrap { padding:25px 14px 45px; display:flex; justify-content:center; }
+.invitation {
+  position:relative; width:min(100%,720px); padding:clamp(28px,6vw,55px);
+  background:var(--paper); text-align:center; border:1px solid var(--pale);
+  box-shadow:0 18px 60px #5c47221a; overflow:hidden;
+}
+.frame { position:absolute; inset:12px; border:1px solid #b18a4b65; pointer-events:none; }
+.invitation:before,.invitation:after { position:absolute; color:var(--gold); content:"✦"; }
+.invitation:before { top:17px; right:18px; }
+.invitation:after { bottom:17px; left:18px; }
+.bismillah { font-size:20px; margin:7px 0 12px; }
+.ornament { color:var(--gold); letter-spacing:5px; margin:13px 0; }
+.intro { font-size:21px; line-height:1.9; margin:12px auto; }
+.couple-photo {
+  display:block; width:min(220px,70%); max-height:240px;
+  object-fit:contain; margin:15px auto;
+  filter:drop-shadow(0 8px 9px #493a291b);
+}
+.names { font-size:clamp(38px,8vw,55px); line-height:1.3; margin:5px 0; font-weight:400; }
+.names-en { font:clamp(24px,5vw,34px) "Cormorant Garamond",serif; margin:8px 0 12px; }
+.label { color:#827563; font-size:18px; margin:17px 0 5px; }
+.date { color:#80602d; font-size:27px; margin:0; }
+.time { font-size:20px; margin:7px 0 17px; }
+.rule { width:min(100%,270px); height:1px; margin:20px auto; background:linear-gradient(to right,transparent,var(--gold),transparent); }
+.venue { font-size:32px; margin:5px 0 0; }
+.venue-en { font:20px "Cormorant Garamond",serif; letter-spacing:3px; color:#80602d; margin:0 0 16px; }
+.actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:15px; }
+.footer { color:#827563; font-size:18px; margin:25px 0 5px; }
+.english-mode { direction:ltr; }
+.english { font-family:"Cormorant Garamond",serif; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.animate > *:not(.frame) { animation:fadeUp .7s ease both; }
+@media(max-width:520px) {
+  .opening-card { min-height:490px; }
+  .invitation-wrap { padding:17px 9px 30px; }
+  .invitation { padding:30px 20px; }
+  .intro { font-size:19px; }
+  .couple-photo { max-height:205px; }
+  .date { font-size:24px; }
+}
+</style>
 </head>
-
 <body>
-  <main class="invitation" id="invitation">
 
-    <button class="language-toggle" id="languageButton"
-      type="button" aria-label="Switch language">
-      EN
-    </button>
+<section class="opening" id="opening">
+  <div class="opening-card">
+    <p class="eyebrow">A SPECIAL INVITATION</p>
+    <div class="monogram">A <span style="color:#b18a4b">&amp;</span> F</div>
+    <h1>عبد الرحمن</h1>
+    <p class="amp">&amp;</p>
+    <h1>فاطمة</h1>
+    <p class="note">بكل الحب، ندعوكم لمشاركتنا فرحتنا</p>
+    <button class="gold-button" id="openButton">افتح الدعوة ♡</button>
+  </div>
+</section>
 
-    <button class="music-button" id="musicButton"
-      type="button" aria-pressed="false">
-      ♫ تشغيل الموسيقى
-    </button>
+<div class="toolbar">
+  <button class="small-button" id="languageButton">EN</button>
+  <button class="small-button" id="musicButton">♫ تشغيل الموسيقى</button>
+</div>
 
-    <!-- غلاف الدعوة -->
-    <section class="open-screen" id="openScreen">
-      <div class="ornament">❧ ❦ ❧</div>
+<main class="invitation-wrap">
+  <article class="invitation" id="invitation">
+    <div class="frame"></div>
+    <p class="bismillah" id="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+    <p class="ornament">✦ ─── ❦ ─── ✦</p>
+    <p class="intro" id="intro">بقلوب يملؤها الفرح والامتنان،<br>نتشرّف بدعوتكم لمشاركتنا أجمل لحظات العمر</p>
 
-      <div class="top-label">دعوة كتب كتاب</div>
-      <div class="cover-subtitle english">
-        KATB KETAB INVITATION</div>
-<img src="couple.jpg" alt="Abdelrahman and Fatma" class="couple-photo" />
+    <img src="couple.jpg" alt="رسمة العروسين" class="couple-photo">
 
-      <div class="monogram">A <span style="font-size:22px">&</span> F</div>
+    <h1 class="names">عبد الرحمن</h1>
+    <p class="amp">&amp;</p>
+    <h2 class="names">فاطمة</h2>
+    <p class="names-en english">Abdelrahman &amp; Fatma</p>
+    <p class="ornament">✦ ❧ ✦</p>
 
-      <div class="cover-title">عبدالرحمن & فاطمة</div>
-      <div class="cover-subtitle english">ABDELRAHMAN & FATMA</div>
+    <p class="label" id="dayLabel">وذلك بمشيئة الله تعالى يوم</p>
+    <p class="date" id="dateText">الثلاثاء، ٢٧ أكتوبر ٢٠٢٦</p>
+    <p class="time" id="timeText">من الساعة ٧ مساءً إلى ١١ مساءً</p>
 
-      <button class="open-button" id="openButton" type="button">
-        افتح الدعوة ♡
-      </button>
-    </section>
+    <div class="rule"></div>
+    <p class="label" id="venueLabel">يسعدنا حضوركم في</p>
+    <p class="venue" id="venueText">قاعة دايموند</p>
+    <p class="venue-en english">DIAMOND HALL</p>
 
-    <!-- المحتوى العربي -->
-    <section class="invitation-content arabic-content">
-      <div class="ornament">❧ ❦ ❧</div>
+    <div class="actions">
+      <a class="small-button" id="mapLink" href="https://maps.app.goo.gl/EonobGfEdEqa41h6A" target="_blank" rel="noopener noreferrer">⌖ موقع القاعة على الخريطة</a>
+    </div>
+    <p class="footer" id="footerText">حضوركم يُكمل فرحتنا، ووجودكم أجمل هدية</p>
+    <p class="ornament">❦</p>
+  </article>
+</main>
 
-      <div class="top-label">بسم الله الرحمن الرحيم</div>
-
-      <p class="intro">بكل الحب والسعادة</p>
-
-      <p class="message">
-        نتشرف بدعوتكم لمشاركتنا فرحتنا
-        والاحتفال ببداية أجمل حكاية
-      </p>
-
-      <h1 class="names">عبدالرحمن</h1>
-      <span class="ampersand">&</span>
-      <h2 class="names">فاطمة</h2>
-
-      <div class="subtitle">دعوة كتب كتاب</div>
-      <div class="subtitle-en english">Katb Ketab Invitation</div>
-
-      <div class="divider"></div>
-
-      <p class="message">
-        حضوركم يسعدنا ويزيد فرحتنا
-        ونتمنى أن تشاركونا هذه اللحظات الجميلة
-      </p>
-
-      <div class="date">
-        <div>التاريخ: <span id="dateAr">٢٧\١٠\٢٠٢٦</span></div>
-        <div>الساعة: <span id="timeAr">٧-١١ مساء يوم الثلاثاء</span></div>
-      </div>
-
-      <div class="venue">قاعة دايموند</div>
-      <div class="venue-en english">DIAMOND HALL</div>
-<a
-  href="https://maps.app.goo.gl/EonobGfEdEqa41h6A"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="location-btn"
->
-  📍 موقع الفرح على Google Maps
-</a>
-
-      <div class="ornament bottom-ornament">❧ ❦ ❧</div>
-    </section>
-
-    <!-- English version -->
-    <section class="invitation-content english-content">
-      <div class="ornament">❧ ❦ ❧</div>
-
-      <div class="top-label english">TOGETHER WITH THEIR FAMILIES</div>
-
-      <p class="message">
-        With love and happiness, we invite you
-        to celebrate the beginning of our
-        beautiful journey together.
-      </p>
-
-      <h1 class="names">ABDELRAHMAN</h1>
-      <span class="ampersand">&</span>
-      <h2 class="names">FATMA</h2>
-
-      <div class="subtitle-en english">KATB KETAB INVITATION</div>
-
-      <div class="divider"></div>
-
-      <p class="message">
-        Your presence will make our special
-        day even more memorable.
-      </p>
-
-      <div class="date english">
-        <div>Date: <span id="dateEn">27/10/2026</span></div>
-        <div>Time: <span id="timeEn">7-11 PM</span></div>
-      </div>
-
-      <div class="venue english">DIAMOND HALL</div>
-      <div class="venue-en">Wedding Venue</div>
-
-      <div class="ornament bottom-ornament">❧ ❦ ❧</div>
-    </section>
-
-    <!-- ارفعي ملف الموسيقى باسم music.mp3 بجوار index.html -->
-    
 <audio id="weddingMusic" loop preload="auto">
   <source src="./music.mp3" type="audio/mpeg">
 </audio>
 
+<script>
+const opening = document.getElementById("opening");
+const invitation = document.getElementById("invitation");
+const music = document.getElementById("weddingMusic");
+const musicButton = document.getElementById("musicButton");
+const languageButton = document.getElementById("languageButton");
+let isEnglish = false;
 
-  </main>
+document.getElementById("openButton").addEventListener("click", async () => {
+  opening.classList.add("hide");
+  invitation.classList.add("animate");
+  try {
+    await music.play();
+    updateMusicButton(true);
+  } catch (error) {
+    updateMusicButton(false);
+  }
+});
 
-  <script>
-    const invitation = document.getElementById("invitation");
-    const openButton = document.getElementById("openButton");
-    const openScreen = document.getElementById("openScreen");
-    const musicButton = document.getElementById("musicButton");
-    const languageButton = document.getElementById("languageButton");
-    const music = document.getElementById("weddingMusic");
-music.volume = 1;
-music.load();
+function updateMusicButton(playing) {
+  musicButton.textContent = playing
+    ? (isEnglish ? "♫ Pause music" : "♫ إيقاف الموسيقى")
+    : (isEnglish ? "♫ Play music" : "♫ تشغيل الموسيقى");
+}
 
-    let isEnglish = false;
-
-    openButton.addEventListener("click", () => {
-      invitation.classList.add("opened");
-
-      // المتصفح قد يسمح بتشغيل الموسيقى بعد ضغط المستخدم.
-      // إذا لم يوجد ملف موسيقى، تظل الدعوة تعمل بشكل طبيعي.
-      music.play().then(() => {
-        updateMusicButton(true);
-      }).catch(() => {
-        updateMusicButton(false);
-      });
-
-      window.setTimeout(() => {
-        openScreen.classList.add("removed");
-      }, 1000);
-    });
-
-    function updateMusicButton(playing) {
-      musicButton.textContent = playing
-        ? "♫ إيقاف الموسيقى"
-        : "♫ تشغيل الموسيقى";
-      musicButton.setAttribute("aria-pressed", String(playing));
+musicButton.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      updateMusicButton(true);
+    } catch (error) {
+      alert(isEnglish
+        ? "Please check that music.mp3 is uploaded beside index.html."
+        : "تأكدي من وجود ملف music.mp3 بجانب index.html في المشروع.");
     }
+  } else {
+    music.pause();
+    updateMusicButton(false);
+  }
+});
 
-    musicButton.addEventListener("click", async () => {
-      if (music.paused) {
-        try {
-          await music.play();
-          updateMusicButton(true);
-        } catch (error) {
-          updateMusicButton(false);
-          alert("أضيفي ملف music.mp3 إلى المشروع أولًا.");
-        }
-      } else {
-        music.pause();
-        updateMusicButton(false);
-      }
-    });
+languageButton.addEventListener("click", () => {
+  isEnglish = !isEnglish;
+  document.documentElement.lang = isEnglish ? "en" : "ar";
+  document.documentElement.dir = isEnglish ? "ltr" : "rtl";
+  invitation.classList.toggle("english-mode", isEnglish);
+  languageButton.textContent = isEnglish ? "عربي" : "EN";
 
-    languageButton.addEventListener("click", () => {
-      isEnglish = !isEnglish;
-      invitation.classList.toggle("english-mode", isEnglish);
-      invitation.dir = isEnglish ? "ltr" : "rtl";
-      languageButton.textContent = isEnglish ? "عربي" : "EN";
-      musicButton.textContent = music.paused
-        ? (isEnglish ? "♫ Play music" : "♫ تشغيل الموسيقى")
-        : (isEnglish ? "♫ Pause music" : "♫ إيقاف الموسيقى");
-    });
-  </script>
+  document.getElementById("bismillah").textContent = isEnglish
+    ? "IN THE NAME OF GOD, THE MOST GRACIOUS"
+    : "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ";
+  document.getElementById("intro").innerHTML = isEnglish
+    ? "With hearts full of joy and gratitude,<br>we invite you to share one of life's most beautiful moments"
+    : "بقلوب يملؤها الفرح والامتنان،<br>نتشرّف بدعوتكم لمشاركتنا أجمل لحظات العمر";
+  document.getElementById("dayLabel").textContent = isEnglish ? "By God's grace, on" : "وذلك بمشيئة الله تعالى يوم";
+  document.getElementById("dateText").textContent = isEnglish ? "Tuesday, 27 October 2026" : "الثلاثاء، ٢٧ أكتوبر ٢٠٢٦";
+  document.getElementById("timeText").textContent = isEnglish ? "From 7:00 PM to 11:00 PM" : "من الساعة ٧ مساءً إلى ١١ مساءً";
+  document.getElementById("venueLabel").textContent = isEnglish ? "We look forward to welcoming you at" : "يسعدنا حضوركم في";
+  document.getElementById("venueText").textContent = isEnglish ? "Diamond Hall" : "قاعة دايموند";
+  document.getElementById("mapLink").textContent = isEnglish ? "⌖ Venue location on Google Maps" : "⌖ موقع القاعة على الخريطة";
+  document.getElementById("footerText").textContent = isEnglish
+    ? "Your presence completes our joy; being with us is the loveliest gift"
+    : "حضوركم يُكمل فرحتنا، ووجودكم أجمل هدية";
+  updateMusicButton(!music.paused);
+});
+</script>
 </body>
 </html>
