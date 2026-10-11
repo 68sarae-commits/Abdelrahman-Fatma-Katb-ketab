@@ -29,6 +29,147 @@ button { font:inherit; cursor:pointer; }
   transition:opacity .8s,visibility .8s;
 }
 .opening.hide { opacity:0; visibility:hidden; pointer-events:none; }
+  
+.luxury-envelope {
+  position: relative;
+  width: min(100%, 420px);
+  padding: 18px;
+  background: linear-gradient(145deg, #e7d5ad, #b18a4b 50%, #e9d9b4);
+  box-shadow: 0 25px 65px rgba(74, 52, 23, .22);
+  animation: envelopeGlow 4s ease-in-out infinite;
+}
+
+.envelope-card {
+  position: relative;
+  min-height: 530px;
+  padding: 48px 20px 70px;
+  text-align: center;
+  background: linear-gradient(145deg, #fffdf8, #f5eddd);
+  border: 1px solid #c6a766;
+  outline: 1px solid rgba(177, 138, 75, .5);
+  outline-offset: -9px;
+  overflow: hidden;
+}
+
+.envelope-card::before,
+.envelope-card::after {
+  content: "❦";
+  position: absolute;
+  color: #c3a05f;
+  font-size: 30px;
+}
+
+.envelope-card::before { top: 18px; right: 22px; }
+.envelope-card::after { bottom: 18px; left: 22px; }
+
+.envelope-kicker {
+  color: #94713c;
+  font: 13px "Cormorant Garamond", serif;
+  letter-spacing: 3px;
+  margin-bottom: 27px;
+}
+
+.envelope-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 83px;
+  height: 83px;
+  margin: 0 auto 20px;
+  border: 1px solid #b18a4b;
+  border-radius: 50%;
+  color: #6a4e2c;
+  font: 29px "Cormorant Garamond", serif;
+  box-shadow: inset 0 0 0 5px rgba(177,138,75,.1);
+}
+
+.envelope-monogram span,
+.envelope-amp {
+  color: #b18a4b;
+}
+
+.envelope-small {
+  color: #8b775a;
+  font-size: 17px;
+  margin: 8px 0;
+}
+
+.envelope-card h1 {
+  color: #403326;
+  font-size: 39px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.envelope-amp {
+  font: 28px "Cormorant Garamond", serif;
+  margin: 0;
+}
+
+.envelope-line {
+  color: #b18a4b;
+  letter-spacing: 6px;
+  margin-top: 22px;
+}
+
+.envelope-flap {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  height: 100px;
+  background: linear-gradient(145deg, #e6d3a9, #c2a064);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  opacity: .25;
+  pointer-events: none;
+}
+
+.wax-seal {
+  position: absolute;
+  left: 50%;
+  bottom: 43px;
+  transform: translateX(-50%);
+  width: 94px;
+  height: 94px;
+  border: 2px solid #e4ce98;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #fff9e9;
+  background: radial-gradient(circle at 32% 25%, #e1c783, #b18a4b 58%, #89652f);
+  box-shadow: 0 5px 15px rgba(78,54,20,.25), inset 0 0 0 4px rgba(255,255,255,.16);
+  font-size: 16px;
+  line-height: 1.15;
+  z-index: 2;
+  cursor: pointer;
+  transition: box-shadow .3s, filter .3s;
+}
+
+.wax-seal:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 25px rgba(218,188,119,.65), inset 0 0 0 4px rgba(255,255,255,.2);
+}
+
+.wax-star {
+  font-size: 19px;
+}
+
+@keyframes envelopeGlow {
+  0%, 100% { box-shadow: 0 25px 65px rgba(74,52,23,.18); }
+  50% { box-shadow: 0 25px 70px rgba(177,138,75,.32); }
+}
+
+@media (max-width: 480px) {
+  .envelope-card { min-height: 490px; padding-top: 38px; }
+  .envelope-card h1 { font-size: 35px; }
+  .wax-seal { width: 86px; height: 86px; bottom: 40px; }
+}
+
 .opening-card {
   position:relative; width:min(100%,430px); min-height:550px;
   display:flex; flex-direction:column; justify-content:center; align-items:center;
@@ -109,16 +250,24 @@ button { font:inherit; cursor:pointer; }
 <body>
 
 <section class="opening" id="opening">
-  <div class="opening-card">
-    <p class="eyebrow">A SPECIAL INVITATION</p>
-    <div class="monogram">A <span style="color:#b18a4b">&amp;</span> F</div>
-    <h1>عبد الرحمن</h1>
-    <p class="amp">&amp;</p>
-    <h1>فاطمة</h1>
-    <p class="note">بكل الحب، ندعوكم لمشاركتنا فرحتنا</p>
-    <button class="gold-button" id="openButton">افتح الدعوة ♡</button>
+  <div class="luxury-envelope">
+    <div class="envelope-card">
+      <p class="envelope-kicker">A SPECIAL INVITATION</p>
+      <div class="envelope-monogram">A <span>&amp;</span> F</div>
+      <p class="envelope-small">دعوة بكل الحب</p>
+      <h1>عبد الرحمن</h1>
+      <p class="envelope-amp">&amp;</p>
+      <h1>فاطمة</h1>
+      <div class="envelope-line">✦ ❦ ✦</div>
+    </div>
+    <div class="envelope-flap"></div>
+    <button class="wax-seal" id="openButton" type="button">
+      <span class="wax-star">✦</span>
+      <span>افتح<br>الدعوة</span>
+    </button>
   </div>
 </section>
+
 
 <div class="toolbar">
   <button class="small-button" id="languageButton">EN</button>
