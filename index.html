@@ -1,380 +1,101 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8f3e9">
-<title>عبد الرحمن & فاطمة | دعوة كتب الكتاب</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ivory:#f8f3e9;
-  --paper:#fffdf8;
-  --gold:#b18a4b;
-  --pale:#e3d1a7;
-  --ink:#453727;
-}
-* { box-sizing:border-box; }
-body {
-  margin:0; min-height:100vh; color:var(--ink);
-  background:radial-gradient(ellipse at top,#fffdf8,#eee3cd);
-  font-family:"Amiri",serif;
-}
-button,a { -webkit-tap-highlight-color:transparent; }
-button { font:inherit; cursor:pointer; }
-.opening {
-  position:fixed; inset:0; z-index:5; display:grid; place-items:center;
-  padding:24px; background:linear-gradient(135deg,#fdfaf3,#eee0c3);
-  transition:opacity .8s,visibility .8s;
-}
-.opening.hide { opacity:0; visibility:hidden; pointer-events:none; }
-  
-.luxury-envelope {
-  position: relative;
-  width: min(100%, 420px);
-  padding: 18px;
-  background: linear-gradient(145deg, #e7d5ad, #b18a4b 50%, #e9d9b4);
-  box-shadow: 0 25px 65px rgba(74, 52, 23, .22);
-  animation: envelopeGlow 4s ease-in-out infinite;
-}
-
-.envelope-card {
-  position: relative;
-  min-height: 530px;
-  padding: 48px 20px 70px;
-  text-align: center;
-  background: linear-gradient(145deg, #fffdf8, #f5eddd);
-  border: 1px solid #c6a766;
-  outline: 1px solid rgba(177, 138, 75, .5);
-  outline-offset: -9px;
-  overflow: hidden;
-}
-
-.envelope-card::before,
-.envelope-card::after {
-  content: "❦";
-  position: absolute;
-  color: #c3a05f;
-  font-size: 30px;
-}
-
-.envelope-card::before { top: 18px; right: 22px; }
-.envelope-card::after { bottom: 18px; left: 22px; }
-
-.envelope-kicker {
-  color: #94713c;
-  font: 13px "Cormorant Garamond", serif;
-  letter-spacing: 3px;
-  margin-bottom: 27px;
-}
-
-.envelope-monogram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 83px;
-  height: 83px;
-  margin: 0 auto 20px;
-  border: 1px solid #b18a4b;
-  border-radius: 50%;
-  color: #6a4e2c;
-  font: 29px "Cormorant Garamond", serif;
-  box-shadow: inset 0 0 0 5px rgba(177,138,75,.1);
-}
-
-.envelope-monogram span,
-.envelope-amp {
-  color: #b18a4b;
-}
-
-.envelope-small {
-  color: #8b775a;
-  font-size: 17px;
-  margin: 8px 0;
-}
-
-.envelope-card h1 {
-  color: #403326;
-  font-size: 39px;
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.envelope-amp {
-  font: 28px "Cormorant Garamond", serif;
-  margin: 0;
-}
-
-.envelope-line {
-  color: #b18a4b;
-  letter-spacing: 6px;
-  margin-top: 22px;
-}
-
-.envelope-flap {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
-  height: 100px;
-  background: linear-gradient(145deg, #e6d3a9, #c2a064);
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-  opacity: .25;
-  pointer-events: none;
-}
-
-.wax-seal {
-  position: absolute;
-  left: 50%;
-  bottom: 43px;
-  transform: translateX(-50%);
-  width: 94px;
-  height: 94px;
-  border: 2px solid #e4ce98;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  color: #fff9e9;
-  background: radial-gradient(circle at 32% 25%, #e1c783, #b18a4b 58%, #89652f);
-  box-shadow: 0 5px 15px rgba(78,54,20,.25), inset 0 0 0 4px rgba(255,255,255,.16);
-  font-size: 16px;
-  line-height: 1.15;
-  z-index: 2;
-  cursor: pointer;
-  transition: box-shadow .3s, filter .3s;
-}
-
-.wax-seal:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 0 25px rgba(218,188,119,.65), inset 0 0 0 4px rgba(255,255,255,.2);
-}
-
-.wax-star {
-  font-size: 19px;
-}
-
-@keyframes envelopeGlow {
-  0%, 100% { box-shadow: 0 25px 65px rgba(74,52,23,.18); }
-  50% { box-shadow: 0 25px 70px rgba(177,138,75,.32); }
-}
-
-@media (max-width: 480px) {
-  .envelope-card { min-height: 490px; padding-top: 38px; }
-  .envelope-card h1 { font-size: 35px; }
-  .wax-seal { width: 86px; height: 86px; bottom: 40px; }
-}
-
-.opening-card {
-  position:relative; width:min(100%,430px); min-height:550px;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  padding:38px 24px; text-align:center; background:var(--paper);
-  border:1px solid var(--gold); outline:1px solid #d8c18d;
-  outline-offset:7px; box-shadow:0 20px 65px #6d54231c;
-}
-.opening-card:before,.opening-card:after {
-  content:"✦"; position:absolute; color:var(--gold); font-size:24px;
-}
-.opening-card:before { top:15px; right:18px; }
-.opening-card:after { bottom:15px; left:18px; }
-.eyebrow {
-  font:14px "Cormorant Garamond",serif; letter-spacing:3px;
-  color:#80602d; margin:0 0 22px;
-}
-.monogram {
-  width:95px; height:95px; border:1px solid var(--gold);
-  border-radius:50%; display:grid; place-items:center;
-  font:34px "Cormorant Garamond",serif; color:#80602d;
-  box-shadow:inset 0 0 0 5px #b18a4b12; margin-bottom:22px;
-}
-.opening h1 { font-size:39px; font-weight:400; margin:0; }
-.amp { font:26px "Cormorant Garamond",serif; color:var(--gold); margin:0; }
-.note { color:#827563; font-size:18px; margin:22px 0; }
-.gold-button {
-  border:1px solid var(--gold); color:white; padding:12px 30px;
-  background:linear-gradient(135deg,#c9aa6a,#967039);
-  box-shadow:0 8px 22px #80602d2b;
-}
-.toolbar { display:flex; justify-content:center; gap:10px; padding:20px 12px 0; flex-wrap:wrap; }
-.small-button {
-  border:1px solid var(--gold); color:#80602d; background:#fffdf8;
-  padding:8px 17px; text-decoration:none; font-size:16px;
-}
-.invitation-wrap { padding:25px 14px 45px; display:flex; justify-content:center; }
-.invitation {
-  position:relative; width:min(100%,720px); padding:clamp(28px,6vw,55px);
-  background:var(--paper); text-align:center; border:1px solid var(--pale);
-  box-shadow:0 18px 60px #5c47221a; overflow:hidden;
-}
-.frame { position:absolute; inset:12px; border:1px solid #b18a4b65; pointer-events:none; }
-.invitation:before,.invitation:after { position:absolute; color:var(--gold); content:"✦"; }
-.invitation:before { top:17px; right:18px; }
-.invitation:after { bottom:17px; left:18px; }
-.bismillah { font-size:20px; margin:7px 0 12px; }
-.ornament { color:var(--gold); letter-spacing:5px; margin:13px 0; }
-.intro { font-size:21px; line-height:1.9; margin:12px auto; }
-.couple-photo {
-  display:block; width:min(220px,70%); max-height:240px;
-  object-fit:contain; margin:15px auto;
-  filter:drop-shadow(0 8px 9px #493a291b);
-}
-.names { font-size:clamp(38px,8vw,55px); line-height:1.3; margin:5px 0; font-weight:400; }
-.names-en { font:clamp(24px,5vw,34px) "Cormorant Garamond",serif; margin:8px 0 12px; }
-.label { color:#827563; font-size:18px; margin:17px 0 5px; }
-.date { color:#80602d; font-size:27px; margin:0; }
-.time { font-size:20px; margin:7px 0 17px; }
-.rule { width:min(100%,270px); height:1px; margin:20px auto; background:linear-gradient(to right,transparent,var(--gold),transparent); }
-.venue { font-size:32px; margin:5px 0 0; }
-.venue-en { font:20px "Cormorant Garamond",serif; letter-spacing:3px; color:#80602d; margin:0 0 16px; }
-.actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:15px; }
-.footer { color:#827563; font-size:18px; margin:25px 0 5px; }
-.english-mode { direction:ltr; }
-.english { font-family:"Cormorant Garamond",serif; }
-@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-.animate > *:not(.frame) { animation:fadeUp .7s ease both; }
-@media(max-width:520px) {
-  .opening-card { min-height:490px; }
-  .invitation-wrap { padding:17px 9px 30px; }
-  .invitation { padding:30px 20px; }
-  .intro { font-size:19px; }
-  .couple-photo { max-height:205px; }
-  .date { font-size:24px; }
-}
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 27.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #dec88f; -webkit-text-stroke: #dec88f}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 34.0px 'Helvetica Neue'; color: #eed99e; -webkit-text-stroke: #eed99e}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 34.0px 'Helvetica Neue'; color: #cbab62; -webkit-text-stroke: #cbab62}
+    p.p4 {margin: 0.0px 0.0px 8.0px 0.0px; text-align: center; font: 18.0px 'Geeza Pro'; color: #ecd8af; -webkit-text-stroke: #ecd8af}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 27.0px 'Helvetica Neue'; color: #a1783b; -webkit-text-stroke: #a1783b}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Zapf Dingbats'; color: #ceb06b; -webkit-text-stroke: #ceb06b}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 20.0px 'Zapf Dingbats'; color: #fff8e4; -webkit-text-stroke: #fff8e4}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 15.0px 'Geeza Pro'; color: #fff8e4; -webkit-text-stroke: #fff8e4}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 16.0px 'Helvetica Neue'; color: #121930; -webkit-text-stroke: #121930}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 16.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930}
+    p.p12 {margin: 0.0px 0.0px 15.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #cc688d; -webkit-text-stroke: #cc688d}
+    p.p14 {margin: 0.0px 0.0px 15.0px 0.0px; text-align: center; font: 25.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930}
+    p.p15 {margin: 0.0px 0.0px 19.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #cc688d; -webkit-text-stroke: #cc688d}
+    p.p16 {margin: 0.0px 11.5px 15.0px 11.5px; text-align: center; text-indent: -11.5px; font: 30.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930}
+    p.p17 {margin: 0.0px 0.0px 8.0px 0.0px; text-align: center; font: 16.0px 'Geeza Pro'; color: #cc688d; -webkit-text-stroke: #cc688d}
+    p.p18 {margin: 0.0px 11.5px 10.0px 11.5px; text-align: center; text-indent: -11.5px; font: 21.0px 'Geeza Pro'; color: #24202e; -webkit-text-stroke: #24202e}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #24202e; -webkit-text-stroke: #24202e; background-color: #f2e1d7}
+    p.p22 {margin: 0.0px 0.0px 10.0px 0.0px; text-align: center; font: 22.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930}
+    p.p23 {margin: 0.0px 0.0px 5.0px 0.0px; text-align: center; font: 17.0px 'Geeza Pro'; color: #795728; -webkit-text-stroke: #795728}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Geeza Pro'; color: #352a1d; -webkit-text-stroke: #352a1d}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Geeza Pro'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p26 {margin: 0.0px 11.5px 15.0px 11.5px; text-align: center; text-indent: -11.5px; font: 22.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 16.0px 'Geeza Pro'; color: #7a674c; -webkit-text-stroke: #7a674c}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 18.0px 'Helvetica Neue'; font-kerning: none}
+    span.s3 {font: 39.0px 'Helvetica Neue'; font-kerning: none}
+    span.s4 {font: 12.0px 'Helvetica Neue'; font-kerning: none}
+    span.s5 {font: 16.0px 'Hiragino Sans'; font-kerning: none}
+    span.s6 {font: 16.0px 'Helvetica Neue'; font-kerning: none}
+    span.s7 {font: 25.0px 'Helvetica Neue'; font-kerning: none}
+    span.s8 {font: 18.0px 'Zapf Dingbats'; font-kerning: none}
+    span.s9 {font: 30.0px 'Helvetica Neue'; font-kerning: none}
+    span.s10 {font: 24.0px 'Helvetica Neue'; font-kerning: none}
+    span.s11 {font: 37.0px 'Helvetica Neue'; font-kerning: none}
+    span.s12 {font: 21.0px 'Helvetica Neue'; font-kerning: none}
+    span.s13 {font: 64.0px 'Helvetica Neue'; font-kerning: none}
+    span.s14 {font: 64.0px 'Helvetica Neue'; font-kerning: none; color: #a1783b; -webkit-text-stroke: 0px #a1783b}
+    span.s15 {font: 22.0px 'Helvetica Neue'; font-kerning: none}
+    span.s16 {font: 22.0px '.Apple Color Emoji UI'; font-kerning: none}
+    span.s17 {font: 26.0px 'Helvetica Neue'; font-kerning: none}
+    span.s18 {font: 12.0px 'Apple Symbols'; font-kerning: none}
+    span.s19 {font: 12.0px 'Geeza Pro'; font-kerning: none}
+  </style>
 </head>
 <body>
-
-<section class="opening" id="opening">
-  <div class="luxury-envelope">
-    <div class="envelope-card">
-      <p class="envelope-kicker">A SPECIAL INVITATION</p>
-      <div class="envelope-monogram">F<span>&amp;</span> A</div>
-      <p class="envelope-small">دعوة بكل الحب</p>
-      <h1>عبد الرحمن</h1>
-      <p class="envelope-amp">&amp;</p>
-      <h1>فاطمة</h1>
-      <div class="envelope-line">✦ ❦ ✦</div>
-    </div>
-    <div class="envelope-flap"></div>
-    <button class="wax-seal" id="openButton" type="button">
-      <span class="wax-star">✦</span>
-      <span>افتح<br>الدعوة</span>
-    </button>
-  </div>
-</section>
-
-
-<div class="toolbar">
-  <button class="small-button" id="languageButton">EN</button>
-  <button class="small-button" id="musicButton">♫ تشغيل الموسيقى</button>
-</div>
-
-<main class="invitation-wrap">
-  <article class="invitation" id="invitation">
-    <div class="frame"></div>
-    <p class="bismillah" id="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
-    <p class="ornament">✦ ─── ❦ ─── ✦</p>
-    <p class="intro" id="intro">بقلوب يملؤها الفرح والامتنان،<br>نتشرّف بدعوتكم لمشاركتنا أجمل لحظات العمر</p>
-
-    <img src="couple.jpg" alt="رسمة العروسين" class="couple-photo">
-
-    <h1 class="names">عبد الرحمن</h1>
-    <p class="amp">&amp;</p>
-    <h2 class="names">فاطمة</h2>
-    <p class="names-en english">Abdelrahman &amp; Fatma</p>
-    <p class="ornament">✦ ❧ ✦</p>
-
-    <p class="label" id="dayLabel">وذلك بمشيئة الله تعالى يوم</p>
-    <p class="date" id="dateText">الثلاثاء، ٢٧ أكتوبر ٢٠٢٦</p>
-    <p class="time" id="timeText">من الساعة ٧ مساءً إلى ١١ مساءً</p>
-
-    <div class="rule"></div>
-    <p class="label" id="venueLabel">يسعدنا حضوركم في</p>
-    <p class="venue" id="venueText">قاعة دايموند</p>
-    <p class="venue-en english">DIAMOND HALL</p>
-
-    <div class="actions">
-      <a class="small-button" id="mapLink" href="https://maps.app.goo.gl/EonobGfEdEqa41h6A" target="_blank" rel="noopener noreferrer">⌖ موقع القاعة على الخريطة</a>
-    </div>
-    <p class="footer" id="footerText">حضوركم يُكمل فرحتنا، ووجودكم أجمل هدية</p>
-    <p class="ornament">❦</p>
-  </article>
-</main>
-
-<audio id="weddingMusic" loop preload="auto">
-  <source src="./music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const opening = document.getElementById("opening");
-const invitation = document.getElementById("invitation");
-const music = document.getElementById("weddingMusic");
-const musicButton = document.getElementById("musicButton");
-const languageButton = document.getElementById("languageButton");
-let isEnglish = false;
-
-document.getElementById("openButton").addEventListener("click", async () => {
-  opening.classList.add("hide");
-  invitation.classList.add("animate");
-  try {
-    await music.play();
-    updateMusicButton(true);
-  } catch (error) {
-    updateMusicButton(false);
-  }
-});
-
-function updateMusicButton(playing) {
-  musicButton.textContent = playing
-    ? (isEnglish ? "♫ Pause music" : "♫ إيقاف الموسيقى")
-    : (isEnglish ? "♫ Play music" : "♫ تشغيل الموسيقى");
-}
-
-musicButton.addEventListener("click", async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      updateMusicButton(true);
-    } catch (error) {
-      alert(isEnglish
-        ? "Please check that music.mp3 is uploaded beside index.html."
-        : "تأكدي من وجود ملف music.mp3 بجانب index.html في المشروع.");
-    }
-  } else {
-    music.pause();
-    updateMusicButton(false);
-  }
-});
-
-languageButton.addEventListener("click", () => {
-  isEnglish = !isEnglish;
-  document.documentElement.lang = isEnglish ? "en" : "ar";
-  document.documentElement.dir = isEnglish ? "ltr" : "rtl";
-  invitation.classList.toggle("english-mode", isEnglish);
-  languageButton.textContent = isEnglish ? "عربي" : "EN";
-
-  document.getElementById("bismillah").textContent = isEnglish
-    ? "IN THE NAME OF GOD, THE MOST GRACIOUS"
-    : "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ";
-  document.getElementById("intro").innerHTML = isEnglish
-    ? "With hearts full of joy and gratitude,<br>we invite you to share one of life's most beautiful moments"
-    : "بقلوب يملؤها الفرح والامتنان،<br>نتشرّف بدعوتكم لمشاركتنا أجمل لحظات العمر";
-  document.getElementById("dayLabel").textContent = isEnglish ? "By God's grace, on" : "وذلك بمشيئة الله تعالى يوم";
-  document.getElementById("dateText").textContent = isEnglish ? "Tuesday, 27 October 2026" : "الثلاثاء، ٢٧ أكتوبر ٢٠٢٦";
-  document.getElementById("timeText").textContent = isEnglish ? "From 7:00 PM to 11:00 PM" : "من الساعة ٧ مساءً إلى ١١ مساءً";
-  document.getElementById("venueLabel").textContent = isEnglish ? "We look forward to welcoming you at" : "يسعدنا حضوركم في";
-  document.getElementById("venueText").textContent = isEnglish ? "Diamond Hall" : "قاعة دايموند";
-  document.getElementById("mapLink").textContent = isEnglish ? "⌖ Venue location on Google Maps" : "⌖ موقع القاعة على الخريطة";
-  document.getElementById("footerText").textContent = isEnglish
-    ? "Your presence completes our joy; being with us is the loveliest gift"
-    : "حضوركم يُكمل فرحتنا، ووجودكم أجمل هدية";
-  updateMusicButton(!music.paused);
-});
-</script>
+<p dir="rtl" class="p1"><span class="s1">A SPECIAL INVITATION</span></p>
+<p dir="rtl" class="p2"><span class="s1">A</span></p>
+<p dir="rtl" class="p3"><span class="s1">&amp;</span></p>
+<p dir="rtl" class="p2"><span class="s1">F</span></p>
+<p dir="rtl" class="p4"><span class="s1">دعوة</span><span class="s2"> </span><span class="s1">بكل</span><span class="s2"> </span><span class="s1">الحب</span></p>
+<h1 dir="rtl" style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 39.0px 'Geeza Pro'; color: #fff7e7; -webkit-text-stroke: #fff7e7"><span class="s1">عبد</span><span class="s3"> </span><span class="s1">الرحمن</span></h1>
+<p dir="rtl" class="p6"><span class="s1">&amp;</span></p>
+<h1 dir="rtl" style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 39.0px 'Geeza Pro'; color: #fff7e7; -webkit-text-stroke: #fff7e7"><span class="s1">فاطمة</span></h1>
+<p dir="rtl" class="p7"><span class="s1">✦</span><span class="s4"> </span><span class="s1">❦</span><span class="s4"> </span><span class="s1">✦</span></p>
+<p dir="rtl" class="p8"><span class="s1">✦</span></p>
+<p dir="rtl" class="p9"><span class="s1">افتح</span></p>
+<p dir="rtl" class="p9"><span class="s1">الدعوة</span></p>
+<p dir="rtl" class="p10"><span class="s1">EN</span></p>
+<p dir="rtl" class="p11"><span class="s5">♫</span><span class="s6"> </span><span class="s1">تشغيل</span><span class="s6"> </span><span class="s1">الموسيقى</span></p>
+<p dir="rtl" class="p12"><span class="s1">THE OPENING</span></p>
+<h2 dir="rtl" style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 24.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">الافتتاحية</span></h2>
+<p dir="rtl" class="p14"><span class="s1">بِسْمِ</span><span class="s7"> </span><span class="s1">اللَّهِ</span><span class="s7"> </span><span class="s1">الرَّحْمَٰنِ</span><span class="s7"> </span><span class="s1">الرَّحِيمِ</span></p>
+<p dir="rtl" class="p15"><span class="s8">✦</span><span class="s1"> ─── </span><span class="s8">❦</span><span class="s1"> ─── </span><span class="s8">✦</span></p>
+<p dir="rtl" class="p16"><span class="s1">﴿</span><span class="s9"> </span><span class="s1">وَمِنْ</span><span class="s9"> </span><span class="s1">آيَاتِهِ</span><span class="s9"> </span><span class="s1">أَنْ</span><span class="s9"> </span><span class="s1">خَلَقَ</span><span class="s9"> </span><span class="s1">لَكُم</span><span class="s9"> </span><span class="s1">مِّنْ</span><span class="s9"> </span><span class="s1">أَنْفُسِكُمْ</span><span class="s9"> </span><span class="s1">أَزْوَاجًا</span><span class="s9"> </span><span class="s1">لِّتَسْكُنُوا</span><span class="s9"> </span><span class="s1">إِلَيْهَا</span><span class="s9"> </span><span class="s1">وَجَعَلَ</span><span class="s9"> </span><span class="s1">بَيْنَكُم</span><span class="s9"> </span><span class="s1">مَّوَدَّةً</span><span class="s9"> </span><span class="s1">وَرَحْمَةً</span><span class="s9"> </span><span class="s1">﴾</span></p>
+<p dir="rtl" class="p17"><span class="s1">صدق</span><span class="s6"> </span><span class="s1">الله</span><span class="s6"> </span><span class="s1">العظيم</span><span class="s6"> — </span><span class="s1">سورة</span><span class="s6"> </span><span class="s1">الروم،</span><span class="s6"> </span><span class="s1">الآية</span><span class="s6"> </span><span class="s1">٢١</span></p>
+<p dir="rtl" class="p12"><span class="s1">THE HOSTS</span></p>
+<h2 dir="rtl" style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 24.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">أصحاب</span><span class="s10"> </span><span class="s1">الدعوة</span></h2>
+<p dir="rtl" class="p18"><span class="s1">يتشرف</span></p>
+<h3 dir="rtl" style="margin: 0.0px 0.0px 8.0px 0.0px; text-align: center; font: 37.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">السيد</span><span class="s11"> </span><span class="s1">مختار كمال</span><span class="s11"> </span><span class="s1">والسيد</span><span class="s11"> </span><span class="s1">محمد سالم</span></h3>
+<p dir="rtl" class="p18"><span class="s1">بدعوتكم</span><span class="s12"> </span><span class="s1">لحضور</span><span class="s12"> </span><span class="s1">عقد</span><span class="s12"> </span><span class="s1">قران</span><span class="s12"> </span><span class="s1">نجليهما</span></p>
+<p dir="rtl" class="p12"><span class="s1">THE COUPLE</span></p>
+<h2 dir="rtl" style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 24.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">العروسان</span></h2>
+<p dir="rtl" class="p20"><span class="s1"><img src="file:///Attachment.png" alt="Attachment.png"></span></p>
+<h1 dir="rtl" style="margin: 0.0px 0.0px 5.0px 0.0px; text-align: center; font: 64.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">عبد</span><span class="s13"> </span><span class="s1">الرحمن</span><span class="s13"> </span><span class="s14">&amp;</span><span class="s13"> </span><span class="s1">فاطمة</span></h1>
+<p dir="rtl" class="p22"><span class="s1">حكاية</span><span class="s15"> </span><span class="s1">جديدة</span><span class="s15"> </span><span class="s1">بتبدأ،</span><span class="s15"> </span><span class="s1">وعمر</span><span class="s15"> </span><span class="s1">جديد</span><span class="s15"> </span><span class="s1">هنكتبه</span><span class="s15"> </span><span class="s1">سوا</span><span class="s15"> </span><span class="s16">🤍</span></p>
+<p dir="rtl" class="p12"><span class="s1">THE INVITATION</span></p>
+<h2 dir="rtl" style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 24.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">الدعوة</span></h2>
+<p dir="rtl" class="p18"><span class="s1">بكل</span><span class="s12"> </span><span class="s1">الحب</span><span class="s12"> </span><span class="s1">والامتنان،</span><span class="s12"> </span><span class="s1">يسعدنا</span><span class="s12"> </span><span class="s1">دعوتكم</span><span class="s12"> </span><span class="s1">لمشاركتنا</span><span class="s12"> </span><span class="s1">فرحة</span><span class="s12"> </span><span class="s1">عقد</span><span class="s12"> </span><span class="s1">قراننا،</span><span class="s12"> </span><span class="s1">وأن</span><span class="s12"> </span><span class="s1">تكونوا</span><span class="s12"> </span><span class="s1">معنا</span><span class="s12"> </span><span class="s1">في</span><span class="s12"> </span><span class="s1">بداية</span><span class="s12"> </span><span class="s1">أجمل</span><span class="s12"> </span><span class="s1">فصل</span><span class="s12"> </span><span class="s1">من</span><span class="s12"> </span><span class="s1">حكايتنا</span><span class="s12">.</span></p>
+<p dir="rtl" class="p23"><span class="s1">التاريخ</span></p>
+<p dir="rtl" class="p24"><span class="s1">الثلاثاء،</span><span class="s17"> </span><span class="s1">٢٧</span><span class="s17"> </span><span class="s1">أكتوبر</span><span class="s17"> </span><span class="s1">٢٠٢٦</span></p>
+<p dir="rtl" class="p23"><span class="s1">الساعة</span></p>
+<p dir="rtl" class="p24"><span class="s1">٧</span><span class="s17"> </span><span class="s1">مساءً</span><span class="s17"> – </span><span class="s1">١١</span><span class="s17"> </span><span class="s1">مساءً</span></p>
+<p dir="rtl" class="p23"><span class="s1">المكان</span></p>
+<p dir="rtl" class="p24"><span class="s1">قاعة</span><span class="s17"> </span><span class="s1">دايموند</span><span class="s17"> – </span><span class="s1"> نادي بانوراما</span><span class="s17"> </span><span class="s1">٦</span><span class="s17"> </span><span class="s1">أكتوبر</span></p>
+<p dir="rtl" class="p25"><span class="s18"><a href="https://maps.app.goo.gl/EonobGfEdEqa41h6A">⌖<span class="s4"> </span><span class="s19">موقع</span><span class="s4"> </span><span class="s19">القاعة</span><span class="s4"> </span><span class="s19">على</span><span class="s4"> </span><span class="s19">الخريطة</span></a></span></p>
+<p dir="rtl" class="p12"><span class="s1">THE CLOSING</span></p>
+<h2 dir="rtl" style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 24.0px 'Geeza Pro'; color: #121930; -webkit-text-stroke: #121930"><span class="s1">الختام</span></h2>
+<p dir="rtl" class="p26"><span class="s1">فرحتنا</span><span class="s15"> </span><span class="s1">مش</span><span class="s15"> </span><span class="s1">هتكمل</span><span class="s15"> </span><span class="s1">غير</span><span class="s15"> </span><span class="s1">بوجودكم</span><span class="s15"> </span><span class="s1">معانا،</span><span class="s15"> </span><span class="s1">ودعواتكم</span><span class="s15"> </span><span class="s1">أجمل</span><span class="s15"> </span><span class="s1">هدية</span><span class="s15"> </span><span class="s1">لينا</span><span class="s15">. </span><span class="s1">ربنا</span><span class="s15"> </span><span class="s1">يبارك</span><span class="s15"> </span><span class="s1">لنا</span><span class="s15"> </span><span class="s1">ويجعل</span><span class="s15"> </span><span class="s1">أيامنا</span><span class="s15"> </span><span class="s1">وأيامكم</span><span class="s15"> </span><span class="s1">كلها</span><span class="s15"> </span><span class="s1">خير</span><span class="s15"> </span><span class="s1">وسعادة</span><span class="s15">. </span><span class="s16">🤍</span></p>
+<p dir="rtl" class="p15"><span class="s8">✦</span><span class="s1"> ───────── </span><span class="s8">✦</span></p>
+<p dir="rtl" class="p27"><span class="s1">بكل</span><span class="s6"> </span><span class="s1">الحب،</span><span class="s6"> </span><span class="s1">عبد</span><span class="s6"> </span><span class="s1">الرحمن</span><span class="s6"> &amp; </span><span class="s1">فاطمة</span></p>
 </body>
 </html>
