@@ -10,19 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 
+
 :root{
-  --navy:#17233f;
+  --navy:#17233F;
   --pink:#8B6548;
   --gold:#B18A4B;
-  --cream:#F8F1E6
+  --cream:#F8F1E6;
+  --ivory:#F8F1E6;
+  --ink:#3E3026;
+  --rose:#8B6548;
+  --white:#FFFFFF;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at top,#fffdf8,var(--ivory) 60%,#efe3d0);color:var(--ink);font-family:'Playfair Display',Amiri,serif;overflow-x:hidden}
+body{margin:0;background:radial-gradient(ellipse at top,#FFFCF6,var(--ivory) 60%,#E5D4BF);color:var(--ink);font-family:'Playfair Display',Amiri,serif;overflow-x:hidden}
 button,a{-webkit-tap-highlight-color:transparent}
 button{font:inherit;cursor:pointer}
-.opening{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#f8f3e9,#f5dce6 58%,#e7d8ef);transition:opacity .9s,visibility .9s;overflow:auto}
+.opening{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#F8F1E6,#E5D4BF 58%,#CBB397);transition:opacity .9s,visibility .9s;overflow:auto}
 .opening.hide{opacity:0;visibility:hidden;pointer-events:none}
 .envelope{position:relative;width:min(100%,430px);padding:13px;background:linear-gradient(145deg,#e5d1a0,#b18a4b 48%,#e9d9b4);box-shadow:0 28px 70px #392b1f30;animation:float 4s ease-in-out infinite}
 .envelope-inner{position:relative;min-height:530px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 22px 110px;background:linear-gradient(150deg,#1e2d4d,#101a31);border:1px solid #e6d3a2;outline:1px solid #b18a4b;outline-offset:-8px;color:#fff7e8}
@@ -34,9 +39,9 @@ button{font:inherit;cursor:pointer}
 .seal{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);width:91px;height:91px;border:2px solid #f0dfb5;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#f0d995,#b18a4b 60%,#795627);color:#fff9e9;box-shadow:0 7px 20px #0005,inset 0 0 0 4px #ffffff30;z-index:2;font-size:15px;line-height:1.5}
 .seal .star{font-size:20px}
 .toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:18px 12px}
-.small-button{border:1px solid var(--navy);color:var(--navy);background:linear-gradient(135deg,#fffafd,#f8e4ec);padding:9px 17px;text-decoration:none;font-size:16px;box-shadow:0 4px 12px #5c47220b}
+.small-button{border:1px solid var(--navy);color:var(--navy);background:linear-gradient(135deg,#FFFCF6,#E9D8C5);padding:9px 17px;text-decoration:none;font-size:16px;box-shadow:0 4px 12px #5c47220b}
 .invitation-wrap{padding:12px 14px 55px;display:flex;justify-content:center}
-.invitation{position:relative;width:min(100%,800px);padding:clamp(28px,5vw,60px);background:linear-gradient(160deg,#fffafd,#fffdf8 56%,#f9eaf0);text-align:center;border:2px solid var(--navy);box-shadow:0 20px 65px #5c47221a;overflow:hidden}
+.invitation{position:relative;width:min(100%,800px);padding:clamp(28px,5vw,60px);background:linear-gradient(160deg,#FFFCF6,#F8F1E6 56%,#E9D8C5);text-align:center;border:2px solid var(--navy);box-shadow:0 20px 65px #5c47221a;overflow:hidden}
 .invitation:before{content:"";position:absolute;inset:12px;border:1px solid #b18a4b90;pointer-events:none}
 .invitation:after{content:"";position:absolute;inset:19px;border:1px solid #d77f9e70;pointer-events:none}
 .section{position:relative;z-index:1;padding:24px 0 31px;scroll-margin-top:20px}
@@ -60,7 +65,7 @@ button{font:inherit;cursor:pointer}
 .tagline{font-size:22px;line-height:1.8;margin:10px auto;color:var(--navy)}
 .tagline-en{font:italic 22px/1.65 'Cormorant Garamond',serif;color:#69563c;margin:10px auto;display:none}
 .details-grid{display:grid;grid-template-columns:1fr;gap:18px;max-width:560px;margin:20px auto}
-.detail{padding:17px 12px;border:1px solid #d77f9e80;background:linear-gradient(135deg,#fffafd,#f9eaf0)}
+.detail{padding:17px 12px;border:1px solid #d77f9e80;background:linear-gradient(135deg,#FFFCF6,#E9D8C5)}
 .detail-label{font-size:17px;color:#8c6a34;margin:0 0 5px}
 .detail-value{font-size:26px;color:#453727;margin:0;line-height:1.5}
 .detail-en{font:22px 'Cormorant Garamond',serif;color:#69563c;margin:5px 0 0;display:none}
